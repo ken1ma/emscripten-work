@@ -6,22 +6,26 @@
 
     emcc -o out/HelloWorld.html HelloWorld.c -s PURE_WASI
 
-## run html
+1. Without `-s PURE_WASI`, `wasmtime` does not print anything.
+
+
+# run
+
+## browser
 
     python3 -m http.server 8080 --dir out
 
-1. Open http://localhost:8080/HelloWorld.html in a browser
+    open http://localhost:8080/HelloWorld.html
 
-## run js
+## node
 
     node out/HelloWorld.js
 
-## run wasm
+## wasmtime
 
     wasmtime run out/HelloWorld.wasm
 
-
-# native
+## native
 
     cc -o out/HelloWorld HelloWorld.c
     out/HelloWorld
